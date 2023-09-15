@@ -1,7 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Poppins:wght@200;400;600;700&display=swap');
 *{
 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+
+body{
+font-family: 'Karla', sans-serif;
+font-family: 'Poppins', sans-serif;
+background-color: #000000;
+color: white;
+
+}
+
+* ::-webkit-scrollbar{
+
+    display: none;
+    
 }
 

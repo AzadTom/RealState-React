@@ -1,10 +1,12 @@
 import React from 'react'
-import Component1 from './components/Component1'
+import HeroSection from './pages/HeroSection'
+
+
 
 function App() {
   return (
     <>
-    <Component1/>
+    <HeroSection/>
     </>
   )
 }
