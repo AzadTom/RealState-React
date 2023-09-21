@@ -1,12 +1,12 @@
 import React from 'react'
-import HeroSection from './pages/HeroSection'
+
 
 
 
 function App() {
   return (
     <>
-    <HeroSection/>
+    <h1>Welcome</h1>
     </>
   )
 }
