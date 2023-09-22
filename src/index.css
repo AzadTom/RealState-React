@@ -27,5 +27,16 @@
         background: linear-gradient(180deg, transparent, rgba(8, 8, 8, 0.61), #000000);
     }
 
+
+    input {
+
+        padding: 1rem 1.2rem;
+        border-radius: 0.1rem;
+       border: 1px solid #666666;
+       background: #444444;
+       outline: none;
+    }
+
+   
     
 }

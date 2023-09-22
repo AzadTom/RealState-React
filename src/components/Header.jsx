@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+
+  const navigate = useNavigate();
   return (
     <>
       <header className="flex justify-between py-4 px-2 bg-[#2E2E2E] ">
@@ -27,7 +30,7 @@ function Header() {
                {/* Button */}
             <div>
                
-                  <button className="px-4 py-2 bg-[#1E1E1E] rounded-[2.5rem] ">
+                  <button className="px-4 py-2 bg-[#1E1E1E] rounded-[2.5rem] " onClick={()=> navigate("/signup")}>
                     SIGNUP
                 </button>
             </div>
