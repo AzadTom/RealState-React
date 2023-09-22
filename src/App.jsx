@@ -1,14 +1,14 @@
-import React from 'react'
-
-
-
+import React from "react";
+import Home from "./pages/Home";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
-    <h1>Welcome</h1>
+      <Toaster position="bottom-center" reverseOrder={false} />
+      <Home />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
