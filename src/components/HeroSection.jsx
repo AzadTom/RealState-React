@@ -14,7 +14,7 @@ function HeroSection() {
       {/* Hero content */}
       <div className="px-10 space-y-5 lg:py-6 p-4 ">
         <h1 className="text-3xl sm:text-6xl md:text-7xl max-w-xl font-serif w-11/12 sm:w-9/12">
-          <span className="underline decoration-white decoration-4">
+          <span className="underline decoration-white decoration-2">
             ExpenseTracker
           </span>{" "}
           is a place to write, read and connect.
