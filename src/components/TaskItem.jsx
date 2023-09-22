@@ -5,9 +5,9 @@ import toast from "react-hot-toast";
 function TaskItem({ id, type }) {
   return (
     <>
-      <div className="bg-[#2E2E2E]  flex  items-center gap-4 p-4  rounded-[1.5rem]">
+      <div className="bg-[#2E2E2E]  flex  items-center   gap-2 p-2  rounded-[1.5rem]">
         {/* Icon */}
-        <div className="bg-[#1E1E1E] p-4 sm:p-8 rounded-[50%]">
+        <div className="bg-[#1E1E1E] p-3 sm:p-4 rounded-[50%]">
           <img src={id} alt="icon" />
         </div>
         {/* content */}

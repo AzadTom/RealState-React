@@ -3,10 +3,11 @@ import expense from '../assets/bankruptcy.svg'
 
 function ExpenseCard() {
   return (
-    <>
-   <div className="bg-[#2E2E2E]  flex  items-center gap-4 p-4 rounded-[1.5rem]" >
+   
+   
+   <div className="bg-[#2E2E2E]  flex  items-center gap-4  rounded-[1.5rem]  p-2 sm:p-6" >
         {/* Icon */}
-        <div className="bg-[#1E1E1E] p-4 sm:p-8  rounded-[50%]">
+        <div className="bg-[#1E1E1E] p-3 sm:p-6  rounded-[50%]">
             <img src={expense} alt="icon"  />
         </div>
         {/* content */}
@@ -16,7 +17,8 @@ function ExpenseCard() {
         </div>
 
       </div>
-  </>
+  
+
   )
 }
 

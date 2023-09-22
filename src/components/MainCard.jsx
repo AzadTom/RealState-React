@@ -5,7 +5,7 @@ import ExpenseCard from "./ExpenseCard";
 function MainCard() {
   return (
     <>
-        <h2 className="sm:my-16 text-2xl sm:text-3xl font-semibold px-4 my-4 sm:mx-8 md:mx-16 ">
+        <h2 className="sm:my-16 text-2xl sm:text-3xl font-semibold my-4 sm:mx-8 md:mx-16 px-4 ">
           Expenses Tracker
         </h2>
      <main >
