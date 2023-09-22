@@ -3,7 +3,7 @@ import React from "react";
 function Header() {
   return (
     <>
-      <header className="flex justify-between py-4 px-2 bg-[#2E2E2E] sticky top-0">
+      <header className="flex justify-between py-4 px-2 bg-[#2E2E2E] ">
         
         {/* Logo */}
           <div className="logo">
