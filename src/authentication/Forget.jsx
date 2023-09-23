@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useAuth } from '../contexts/authcontext';
 
 function Forget() {
+
+
+  const [email,setemail] = useState("");
+
+  const {forgethandler} = useAuth();
+
+
+  const forgetformhandler = async(event)=> {
+
+      event.preventDefault();
+      await forgethandler(email);
+
+  }
+
+
   return (
     <>
       <div className='flex justify-center items-center h-screen'>
@@ -10,8 +26,8 @@ function Forget() {
                 <p className='text-sm font-thin'>Lets starts with email</p>
                 </div>
                  
-              <input type="email"  name='email'  placeholder='Email' required  className='px-4 py-2'/>
-              <button type='submit' className='bg-[#2E2E2E] sm:bg-[#1E1E1E] px-4 py-2 rounded'>SEARCH</button>
+              <input type="email"  name='email'  placeholder='Email' required  className='px-4 py-2' value={email} onChange={ (e)=> setemail(e.target.value)}/>
+              <button  className='bg-[#2E2E2E] sm:bg-[#1E1E1E] px-4 py-2 rounded' onClick={(e)=> forgetformhandler(e)}>SEARCH</button>
               
          </form>
       </div>
