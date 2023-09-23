@@ -47,7 +47,7 @@ function SignUp() {
   return (
     <>
       <div className="flex justify-center items-center h-screen">
-        <form className="flex flex-col gap-4 sm:bg-[#2E2E2E] p-8 rounded ">
+        <form className="flex flex-col gap-4 sm:bg-[#2E2E2E] p-2 sm:p-8 rounded ">
           <div>
             <h2 className="text-3xl font-semibold">SIGN UP</h2>
             <p className="text-sm font-thin">Lets create account fast</p>
