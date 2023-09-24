@@ -12,7 +12,7 @@ import { BASE_URL } from "../utils/constant.js";
 
     },
     withCredentials:true
-  }).then((res)=> console.log(res)).catch((err)=> console.log(err))
+  });
 
 
   const loginservice = async(email,password)=>
@@ -25,7 +25,7 @@ import { BASE_URL } from "../utils/constant.js";
 
     },
     withCredentials:true
-  }).then((res)=> console.log(res)).catch((err)=> console.log(err))
+  });
 
 
   const logoutservice =async( )=>
@@ -35,16 +35,9 @@ import { BASE_URL } from "../utils/constant.js";
 
     },
     withCredentials:true
-  }).then((res)=> console.log(res)).catch((err)=> console.log(err))
+  });
 
-    const currentProfile = async( )=>
-    await axios.get(`${BASE_URL}/api/v1/user/profile`,{
-      headers:{
-        "Content-Type":"application/json",
-  
-      },
-      withCredentials:true
-    }).then((res)=> console.log(res)).catch((err)=> console.log(err))
+    
 
     const forgetPassword = async( email)=>
     await axios.post(`${BASE_URL}/api/v1/password/`,{email},{
@@ -53,6 +46,20 @@ import { BASE_URL } from "../utils/constant.js";
   
       },
       withCredentials:true
-    }).then((res)=> console.log(res)).catch((err)=> console.log(err))
+    });
 
-    export {signupservice,loginservice,logoutservice,currentProfile,forgetPassword}
+
+    const changePassword = async(userId,tokon,password)=>
+     await axios.post(`${BASE_URL}/api/v1/password/password-reset`,{
+      userId,
+      tokon,
+      password
+     },{
+      headers:{
+        "Content-Type":"application/json",
+  
+      },
+      withCredentials:true
+    })
+
+    export {signupservice,loginservice,logoutservice,forgetPassword,changePassword}

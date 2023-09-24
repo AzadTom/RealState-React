@@ -1,7 +1,7 @@
 import  {SIGNUP,LOGIN,LOGOUT} from '../utils/constant.js';
 
 
-const authreducer = (state,action)=>{
+const authReducer = (state,action)=>{
 
     switch(action.type)
     {
@@ -10,7 +10,7 @@ const authreducer = (state,action)=>{
                 ...state,
                 token:action.payload.token,
                 currentUser:action.payload.user,
-                isLoggedIn:true
+                isLoggedIn:true,
             }
 
         case LOGIN:
@@ -18,7 +18,7 @@ const authreducer = (state,action)=>{
                 ...state,
                 token:action.payload.token,
                 currentUser:action.payload.user,
-                isLoggedIn:true
+                isLoggedIn:true,
             }
             
         case LOGOUT:
@@ -28,10 +28,15 @@ const authreducer = (state,action)=>{
                 currentUser:null,
                 isLoggedIn:false
             }
-         default:
-            return state;   
+
+             default:
+                return state;
+         
     }
+
+
+   
 
 }
 
-export default authreducer;
+export {authReducer}

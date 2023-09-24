@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Profile from "./Profile";
-import { useAuth } from "../contexts/authcontext";
+ import { useAuth } from "../contexts/authcontext";
 import { validateCredential } from "./validateCredential";
 import InputField from "./InputField";
 
@@ -29,6 +28,7 @@ function SignUp() {
 
     if (isValid) {
       await signuphandler(userDetails);
+      
     } else {
       setUserDetails({ ...userDetails, errors });
     }
@@ -52,7 +52,6 @@ function SignUp() {
             <h2 className="text-3xl font-semibold">SIGN UP</h2>
             <p className="text-sm font-thin">Lets create account fast</p>
           </div>
-          <Profile />
           <InputField
             id={"name"}
             type={"text"}

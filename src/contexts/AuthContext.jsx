@@ -1,176 +1,219 @@
-import React from 'react'
-import { useReducer } from 'react';
-import { createContext,useContext} from 'react'
-import authreducer from '../reducers/AuthReducer';
-import { useNavigate } from 'react-router-dom';
-import {SIGNUP,LOGIN,LOGOUT} from '../utils/constant.js';
-import {signupservice,loginservice,logoutservice,currentProfile,forgetPassword} from '../services/authservice.js'
-
+import React from "react";
+import { useReducer } from "react";
+import { createContext, useContext } from "react";
+import { authReducer } from "../reducers/AuthReducer.js";
+import { useNavigate } from "react-router-dom";
+import { SIGNUP, LOGIN, LOGOUT } from "../utils/constant.js";
+import {
+  signupservice,
+  loginservice,
+  logoutservice,
+  forgetPassword,
+  changePassword
+} from "../services/authservice.js";
+import toast from "react-hot-toast";
 
 const AuthContext = createContext();
 
+export const AuthContextProvider = ({ children }) => {
+  const navigate = useNavigate();
 
-function AuthContextProvider({children}) {
+  const localStorageToken = JSON.parse(localStorage.getItem("login"));
 
-
-const navigate =useNavigate();
-
-
-  const initialState = {
-    token: null,
-    currentUser: null,
+  let initialState = {
+    token: localStorageToken?.token || null,
+    currentUser: localStorageToken?.user || null,
     isLoggedIn: false,
   };
 
-    const[state,dispatch] = useReducer(initialState,authreducer);
+  const [state, dispatch] = useReducer(authReducer,initialState);
+ 
+
+  const signuphandler = async ({ name, email, password }) => {
+    try {
+      const response = await signupservice(name, email, password);
+
+      console.log(response.data);
+
+      localStorage.setItem(
+        "login",
+        JSON.stringify({ user: response.data.createduser, token: response.data.token })
+      );
+
+      dispatch({
+        type: SIGNUP,
+        payload: {
+          user: response.data.createduser,
+          token: response.data.token,
+        },
+      });
+
+      toast.success("Register successfully!", {
+        style: {
+          border: "1px solid #1E1E1E",
+          padding: "16px",
+          color: "#fff",
+          background: "#1E1E1E",
+        },
+        iconTheme: {
+          primary: "#FFF",
+          secondary: "#1E1E1E",
+        },
+      });
+
+      navigate("/home");
+
+    } catch (error) {
+      toast.error("Something went wrong!", {
+        style: {
+          border: "1px solid #1E1E1E",
+          padding: "16px",
+          color: "#fff",
+          background: "#1E1E1E",
+        },
+        iconTheme: {
+          primary: "#FFF",
+          secondary: "#1E1E1E",
+        },
+      });
+      console.log(error);
+    }
+  };
+
+  const loginhandler = async ({ email, password }) => {
+    try {
+      const response = await loginservice(email, password);
+      console.log(response.data);
+
+      localStorage.setItem(
+        "login",
+        JSON.stringify({ user: response.data.founduser, token: response.data.token })
+      );
+      dispatch({
+        type: LOGIN,
+        payload: { user: response.data.founduser, token: response.data.token },
+      });
+
+      console.log(state);
+
+      toast.success("Login successfully!", {
+        style: {
+          border: "1px solid #1E1E1E",
+          padding: "16px",
+          color: "#fff",
+          background: "#1E1E1E",
+        },
+        iconTheme: {
+          primary: "#FFF",
+          secondary: "#1E1E1E",
+        },
+      });
+
+      navigate("/home");
 
 
-    const signuphandler = async({name,email,password})=>{
+    } catch (error) {
+      toast.error("Something went wrong!", {
+        style: {
+          border: "1px solid #1E1E1E",
+          padding: "16px",
+          color: "#fff",
+          background: "#1E1E1E",
+        },
+        iconTheme: {
+          primary: "#FFF",
+          secondary: "#1E1E1E",
+        },
+      });
+      console.log("login", error);
+    }
+  };
+
+  const logouthandler = async () => {
+    try {
+      const response = await logoutservice();
+
+      const { data } = response;
+
+      console.log(data);
+
+      dispatch({ type: LOGOUT });
+
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 
-       try {
 
-        const response = await signupservice(name,email,password);
+  const forgethandler = async (email) => {
+    try {
+      const response = await forgetPassword(email);
+  
 
-        console.log(response);
+      const {status ,data :{userid,tokon}} = response;
 
-         const {data:{createduser,token}} = response;
+      if(status ===200 || status ===201)
+      {
 
-         
+            navigate(`/change/${userid}/${tokon}`);
 
-            dispatch({type:SIGNUP,payload:{user:createduser,token:token}});
-
-            console.log(response.data);
-
-              navigate("/home");
-
-           
+      }
 
       
-        
-       } catch (error) {
 
-         console.log(error);
-        
-       }
-
-
+    
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-    const loginhandler = async({email,password})=>{
+  const changepasswordhandler = async(userId,tokon,password)=>{
 
-        
-        try {
+          try {
 
-            const response = await loginservice(email,password);
-    
-             const {data:{founduser,token}} = response;
-    
-             
-    
-                dispatch({type:LOGIN,payload:{user:founduser,token:token}});
-    
-                console.log(response.data);
-    
-                  navigate("/home");
-    
-               
-    
-          
-            
-           } catch (error) {
-    
-             console.log(error);
-            
-           }
-        
+            const response  = await changePassword(userId,tokon,password);
 
+            const {status ,data:{message}} = response;
 
-    }
+            if(status===200 || status ===201)
+            {
 
-    const logouthandler = async()=>{
+              console.log(message);
+              navigate(`/success/${message}`);
 
- 
-         try {
+              setTimeout(() => {
 
-            const response = await logoutservice();
-
-            const {data} = response;
-
-              console.log(data)
-        
-
-                dispatch({type:LOGOUT})
+                navigate("/home");
                 
-                navigate("/")
-
-       
-
-            
-            
-         } catch (error) {
-
-            console.log(error);
-            
-         }
-
-    }
-
-
-    const getProfile = async()=>{
-
-        try {
-
-            const response = await currentProfile();
-
-            const {data:{currentuser}} = response;
-
-          
-                return currentuser;
+              }, 3000);
+               
+            }
 
             
-            
-        } catch (error) {
+          } catch (error) {
             
             console.log(error);
-        }
 
-        
-
-    }
-
-    const forgethandler = async(email)=>{
-
-      try {
-
-        const response = await forgetPassword(email);
-
-          console.log(response)
-
-           navigate("/")
-
-         
-        
-      } catch (error) {
-
-        console.log(error);
-        
-      }
-    }
-
-
-    
+          }
+  }
   return (
-    <>
-    <AuthContext.Provider  value={{ signuphandler,loginhandler,logouthandler,getProfile,state,forgethandler}}>
-        {children}
+    <AuthContext.Provider
+      value={{
+        signuphandler,
+        loginhandler,
+        logouthandler,
+        state,
+        forgethandler,
+        changepasswordhandler
+      }}
+    >
+      {children}
     </AuthContext.Provider>
-    </>
-  )
+  );
 }
 
-const useAuth = ()=> useContext(AuthContext);
+export const useAuth = () => useContext(AuthContext);
 
-export default AuthContextProvider;
-export {useAuth}
 

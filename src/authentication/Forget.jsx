@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import { useAuth } from '../contexts/authcontext';
+import { useNavigate } from 'react-router-dom';
 
 function Forget() {
 
+
+
+  const navigate = useNavigate();
 
   const [email,setemail] = useState("");
 
@@ -12,7 +16,8 @@ function Forget() {
   const forgetformhandler = async(event)=> {
 
       event.preventDefault();
-      await forgethandler(email);
+      await forgethandler(email)
+
 
   }
 
