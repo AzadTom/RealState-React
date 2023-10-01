@@ -16,7 +16,7 @@ function ChangePassword() {
     password:""
   });
 
-  const {changepasswordhandler,state} = useAuth();
+  const {changepasswordhandler} = useAuth();
 
 
   const changeformPassword = async(event)=> {
@@ -34,7 +34,6 @@ function ChangePassword() {
          <form className='flex flex-col gap-4 sm:bg-[#2E2E2E] p-2 sm:p-8 rounded '>
                 <div>
                 <h2 className='text-2xl font-semibold'>Change pssword</h2>
-                <p className='text-sm font-thin'>{state.currentUser}</p>
                 </div>
                  
               <input type="text"  name='password'  placeholder='Password' required  className='px-4 py-2' value={passwordetails.password} onChange={ (e)=> setpassword({...passwordetails,password:e.target.value})}/>

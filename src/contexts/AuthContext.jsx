@@ -1,9 +1,8 @@
-import React from "react";
-import { useReducer } from "react";
+import React, { useReducer } from "react";
 import { createContext, useContext } from "react";
-import { authReducer } from "../reducers/AuthReducer.js";
+import  {authReducer } from '../reducers/authreducer.js'
 import { useNavigate } from "react-router-dom";
-import { SIGNUP, LOGIN, LOGOUT } from "../utils/constant.js";
+import {  LOGIN, LOGOUT } from "../utils/constant.js";
 import {
   signupservice,
   loginservice,
@@ -15,7 +14,8 @@ import toast from "react-hot-toast";
 
 const AuthContext = createContext();
 
-export const AuthContextProvider = ({ children }) => {
+ const AuthContextProvider = ({ children }) => {
+
   const navigate = useNavigate();
 
   const localStorageToken = JSON.parse(localStorage.getItem("login"));
@@ -23,46 +23,60 @@ export const AuthContextProvider = ({ children }) => {
   let initialState = {
     token: localStorageToken?.token || null,
     currentUser: localStorageToken?.user || null,
-    isLoggedIn: false,
+    isLoggedIn: localStorageToken?.status || null,
   };
 
-  const [state, dispatch] = useReducer(authReducer,initialState);
+  let [state, dispatch] = useReducer(authReducer,initialState);
+
  
 
   const signuphandler = async ({ name, email, password }) => {
     try {
+
+
       const response = await signupservice(name, email, password);
 
-      console.log(response.data);
 
-      localStorage.setItem(
-        "login",
-        JSON.stringify({ user: response.data.createduser, token: response.data.token })
-      );
+       
+      const { status , data} = response;
 
-      dispatch({
-        type: SIGNUP,
-        payload: {
-          user: response.data.createduser,
-          token: response.data.token,
-        },
-      });
+        if(status === 200 || status ===201)
+        {
+         
 
-      toast.success("Register successfully!", {
-        style: {
-          border: "1px solid #1E1E1E",
-          padding: "16px",
-          color: "#fff",
-          background: "#1E1E1E",
-        },
-        iconTheme: {
-          primary: "#FFF",
-          secondary: "#1E1E1E",
-        },
-      });
+           const info =  {user:data.createduser ,token :data.token, status:true}
 
-      navigate("/home");
 
+           console.log(state);
+
+           dispatch({type:LOGIN,payload:{info}}); 
+
+           console.log(state);
+
+   
+          localStorage.setItem(
+           "login",
+           JSON.stringify({ user: data.createduser, token: data.token ,status:true })
+         );
+       
+   
+         toast.success("Register successfully!", {
+           style: {
+             border: "1px solid #1E1E1E",
+             padding: "16px",
+             color: "#fff",
+             background: "#1E1E1E",
+           },
+           iconTheme: {
+             primary: "#FFF",
+             secondary: "#1E1E1E",
+           },
+         });
+   
+         navigate("/home");
+   
+        }
+     
     } catch (error) {
       toast.error("Something went wrong!", {
         style: {
@@ -82,35 +96,54 @@ export const AuthContextProvider = ({ children }) => {
 
   const loginhandler = async ({ email, password }) => {
     try {
+
+
       const response = await loginservice(email, password);
-      console.log(response.data);
 
-      localStorage.setItem(
-        "login",
-        JSON.stringify({ user: response.data.founduser, token: response.data.token })
-      );
-      dispatch({
-        type: LOGIN,
-        payload: { user: response.data.founduser, token: response.data.token },
-      });
 
-      console.log(state);
+       console.log(response);
 
-      toast.success("Login successfully!", {
-        style: {
-          border: "1px solid #1E1E1E",
-          padding: "16px",
-          color: "#fff",
-          background: "#1E1E1E",
-        },
-        iconTheme: {
-          primary: "#FFF",
-          secondary: "#1E1E1E",
-        },
-      });
+      const {status,data } = response;
 
-      navigate("/home");
+         if(status === 200 || status === 201)
+         {
+          const info =  {user:data.founduser ,token :data.token, status:true}
 
+          console.log(state)
+
+           dispatch({type:LOGIN,payload:{info}});
+           
+           console.log(state)
+        
+  
+         localStorage.setItem(
+           "login",
+           JSON.stringify({ user: data.founduser, token: data.token,status:true })
+         );
+   
+        
+   
+         
+   
+         toast.success("Login successfully!", {
+           style: {
+             border: "1px solid #1E1E1E",
+             padding: "16px",
+             color: "#fff",
+             background: "#1E1E1E",
+           },
+           iconTheme: {
+             primary: "#FFF",
+             secondary: "#1E1E1E",
+           },
+         });
+   
+         navigate("/home");
+   
+         }
+
+        
+  
 
     } catch (error) {
       toast.error("Something went wrong!", {
@@ -139,7 +172,13 @@ export const AuthContextProvider = ({ children }) => {
 
       dispatch({ type: LOGOUT });
 
-      navigate("/");
+      localStorage.setItem(
+        "login",
+        JSON.stringify({ user: null, token: null,status:false})
+      );
+
+      navigate("/home");
+      
     } catch (error) {
       console.log(error);
     }
@@ -204,7 +243,7 @@ export const AuthContextProvider = ({ children }) => {
         signuphandler,
         loginhandler,
         logouthandler,
-        state,
+         state,
         forgethandler,
         changepasswordhandler
       }}
@@ -214,6 +253,9 @@ export const AuthContextProvider = ({ children }) => {
   );
 }
 
-export const useAuth = () => useContext(AuthContext);
+export default AuthContextProvider
+
+export const useAuth = ( ) => useContext(AuthContext);
+
 
 

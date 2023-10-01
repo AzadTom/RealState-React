@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+
+
 
 
 
@@ -8,13 +11,21 @@ function Header() {
   const navigate = useNavigate();
 
 
-  
-
-   
+  const { state } = useAuth( );
 
 
+  const {currentUser,isLoggedIn } = state;
 
-  
+
+  useEffect(()=>{
+
+    console.log("Inside Header",isLoggedIn);
+    console.log("Inside",currentUser);
+
+
+
+
+  })
 
  
   return (
@@ -51,13 +62,18 @@ function Header() {
         </div>
 
         {/* Button */}
+       
         <div>
-        <button
+        {
+
+
+            isLoggedIn?(  <div className="flex flex-col justify-center items-center" onClick={()=> navigate("/profile")}> <div className="w-[2rem] h-[2rem] rounded-[50%] bg-white text-black font-semibold flex justify-center items-center">{currentUser.name.charAt(0)}</div> <span>{currentUser.name}</span></div> ) : (  <button
               className="px-4 py-2 bg-[#1E1E1E] rounded-[2.5rem] "
               onClick={() => navigate("/signup")}
             >
               SIGNUP
-            </button>
+            </button>)
+        }        
         </div>
       </header>
     </>

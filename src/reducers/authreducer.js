@@ -1,33 +1,39 @@
-import  {SIGNUP,LOGIN,LOGOUT} from '../utils/constant.js';
+import  {LOGIN,LOGOUT} from '../utils/constant.js';
 
 
-const authReducer = (state,action)=>{
+export const  authReducer  = (state,action)=>{
 
     switch(action.type)
     {
-        case SIGNUP:
-            return {
-                ...state,
-                token:action.payload.token,
-                currentUser:action.payload.user,
-                isLoggedIn:true,
-            }
+    
+        case LOGIN:{
 
-        case LOGIN:
-            return {
-                ...state,
-                token:action.payload.token,
-                currentUser:action.payload.user,
-                isLoggedIn:true,
-            }
+            const {payload} = action;
+            console.log("reducer",payload);
+            const {info} = payload;
             
-        case LOGOUT:
+                return {
+                    ...state,
+                    token:info.token,
+                    currentUser:info.user,
+                    isLoggedIn: info.status
+                }
+
+        }
+       
+            
+        case LOGOUT:{
+
+
             return {
                 ...state,
                 token:null,
                 currentUser:null,
                 isLoggedIn:false
             }
+
+        }
+           
 
              default:
                 return state;
@@ -39,4 +45,4 @@ const authReducer = (state,action)=>{
 
 }
 
-export {authReducer}
+

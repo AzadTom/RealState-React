@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
- import { useAuth } from "../contexts/authcontext";
+import { useAuth } from "../contexts/AuthContext";
 import { validateCredential } from "./validateCredential";
 import InputField from "./InputField";
+
 
 function SignUp() {
   const navigate = useNavigate();
 
-  const { signuphandler } = useAuth();
+
+   
+  const { signuphandler} = useAuth( );
 
   const [userDetails, setUserDetails] = useState({
     name: "",

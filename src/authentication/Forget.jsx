@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useAuth } from '../contexts/authcontext';
+
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/authcontext';
 
 function Forget() {
 
@@ -10,7 +11,8 @@ function Forget() {
 
   const [email,setemail] = useState("");
 
-  const {forgethandler} = useAuth();
+  const {forgethandler} = useAuth( );
+
 
 
   const forgetformhandler = async(event)=> {

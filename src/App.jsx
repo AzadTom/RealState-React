@@ -8,6 +8,7 @@ import ChangePassword from "./authentication/ChangePassword";
 import Success from "./authentication/Success";
 import HeroSection from "./components/HeroSection";
 import {Routes,Route} from 'react-router-dom'
+import Profile from "./pages/Profile";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route element={<ChangePassword/>} path="/change/:id/:tokon"/>
         <Route element={<Success/>} path="/success/:message"/>
         <Route element={<Home/>} path="/home"/>
+        <Route element={<Profile/>} path="/profile"/>
     </Routes>
     </>
   );
