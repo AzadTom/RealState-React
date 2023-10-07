@@ -30,23 +30,18 @@ function MainCard() {
           setasks(data.tasks);
           
 
-           const total = useMemo(()=>{
+           const total =  tasklist.reduce((acc,curr)=>{
 
-            tasklist.reduce((acc,curr)=>{
+            const {type ,amount} = curr;
 
-              const {type ,amount} = curr;
-  
-              acc[type] = (acc[type] ||0 )+ amount;
-  
-  
-              return acc;
-  
-  
-  
-            },{ });
+            acc[type] = (acc[type] ||0 )+ amount;
 
 
-           },[ tasklist]);
+            return acc;
+
+
+
+          },{ });
 
           
 
