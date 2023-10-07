@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import {Routes,Route} from 'react-router-dom'
 import { Toaster } from "react-hot-toast";
-const  Home =  lazy(()=> import("./pages/Home")); 
+import Home from './pages/Home';
 const  SignUp = lazy(()=> import("./authentication/SignUp"));
 const  SignIn =  lazy(()=> import("./authentication/SignIn"));
 const  Forget = lazy(()=> import("./authentication/Forget")); 
@@ -24,9 +24,9 @@ function App() {
         <Route element={<Suspense fallback={<Loader/>}> <Forget/></Suspense>} path="/forget"/>
         <Route element={<Suspense fallback={<Loader/>}> <ChangePassword/></Suspense>} path="/change/:id/:tokon"/>
         <Route element={<Suspense fallback={<Loader/>}> <Success/></Suspense>} path="/success/:message"/>
-        <Route element={<Suspense fallback={<Loader/>}> <Home/></Suspense>} path="/home"/>
+        <Route element={ <Home/>} path="/home"/>
         <Route element={<Suspense fallback={<Loader/>}> <Profile/></Suspense>} path="/profile"/>
-        <Route element={<Suspense fallback={<Loader/>}> <CreateTask/></Suspense>} path="/createtask"/>
+        <Route element={<Suspense fallback={<Loader/>}> <CreateTask/> </Suspense>} path="/createtask"/>
     </Routes>
     </>
   );
