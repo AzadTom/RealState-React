@@ -23,7 +23,7 @@ function HeroSection() {
           It's easy and free to post your thinking on any topic and connect with
           millions of readers.
         </h2>
-        <button className=" bg-[#2E2E2E] px-4 py-2 rounded-full font-medium active:scale-90 transition duration-100" onClick={()=>navigate("/signup")}>
+        <button className=" bg-[#2E2E2E] px-4 py-2 rounded-full font-medium active:scale-90 transition duration-100" onClick={()=>navigate("/home")}>
           Get Started
         </button>
       </div>
