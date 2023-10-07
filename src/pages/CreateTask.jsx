@@ -70,6 +70,7 @@ function CreateTask() {
           secondary: "#1E1E1E",
         },
       });
+      navigate("/signup");
  
      }
       
