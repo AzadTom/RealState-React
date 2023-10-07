@@ -1,13 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function History() {
+
+
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="flex items-center  justify-between px-4 sm:mx-8 md:mx-16">
         <div>
           <h2 className="text-2xl sm:text-3xl font-semibold">History</h2>
         </div>
-        <div className="bg-[#2E2E2E] p-8 rounded-[50%] hidden sm:block cursor-pointer">
+        <div className="bg-[#2E2E2E] p-8 rounded-[50%] hidden sm:block cursor-pointer" onClick={()=> navigate("/createtask")}>
           <svg
             width="22"
             height="22"

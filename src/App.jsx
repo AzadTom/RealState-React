@@ -9,6 +9,7 @@ import Success from "./authentication/Success";
 import HeroSection from "./components/HeroSection";
 import {Routes,Route} from 'react-router-dom'
 import Profile from "./pages/Profile";
+import CreateTask from "./pages/CreateTask";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route element={<Success/>} path="/success/:message"/>
         <Route element={<Home/>} path="/home"/>
         <Route element={<Profile/>} path="/profile"/>
+        <Route element={<CreateTask/>} path="/createtask"/>
     </Routes>
     </>
   );

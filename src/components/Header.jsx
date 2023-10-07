@@ -11,7 +11,9 @@ function Header() {
   const navigate = useNavigate();
 
 
-  const { state } = useAuth( );
+   const {state} = useAuth();
+
+
 
 
   const {currentUser,isLoggedIn } = state;

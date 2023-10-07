@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useAuth } from '../contexts/authcontext';
+import { useAuth } from '../contexts/AuthContext';
 import { useParams } from 'react-router-dom';
 
 function ChangePassword() {

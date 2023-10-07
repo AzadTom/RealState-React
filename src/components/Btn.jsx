@@ -1,8 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Btn() {
+
+  const navigate = useNavigate( );
   return (
-  <div className='flex justify-end items-center m-8 drop-shadow-sm fixed bottom-4 right-0'>
+  <div className='flex justify-end items-center m-8 drop-shadow-sm fixed bottom-4 right-0' onClick={()=> navigate("/createtask")}>
       <div className="bg-[#1E1E1E]  sm:hidden p-8 rounded-[50%]    ">
           <svg
             width="22"

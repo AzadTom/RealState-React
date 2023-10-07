@@ -1,7 +1,7 @@
 import React from 'react'
 import expense from '../assets/bankruptcy.svg'
 
-function ExpenseCard() {
+function ExpenseCard({Texpense}) {
   return (
    
    
@@ -12,7 +12,7 @@ function ExpenseCard() {
         </div>
         {/* content */}
         <div>
-            <h2 className="text-xl sm:text-3xl font-semibold">$300</h2>
+            <h2 className="text-xl sm:text-3xl font-semibold">{Texpense}</h2>
             <p>Expenses</p>
         </div>
 

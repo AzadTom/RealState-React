@@ -1,8 +1,75 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import IncomeCard from "./IncomeCard";
 import ExpenseCard from "./ExpenseCard";
+import TasksContainer from "./TasksContainer";
+import History from "./History";
+import { getTasks } from "../services/taskservice";
 
 function MainCard() {
+
+
+
+  const [tasklist,setasks] = useState([ ]);
+  const [refresh,setRefrsh] = useState(false);
+
+  const [TotalamountbyType,setTotalamountbyType] = useState({expense:0,income:0});
+
+   
+
+
+
+
+
+   useEffect(()=>{
+      
+        async function fetchdata( ){
+
+          const response  = await getTasks( );
+
+          const { status ,data} = response;
+
+          setasks(data.tasks);
+          setRefrsh((prev)=> !prev);
+
+           const total = tasklist.reduce((acc,curr)=>{
+
+            const {type ,amount} = curr;
+
+            acc[type] = (acc[type] ||0 )+ amount;
+
+
+            return acc;
+
+
+
+          },{ });
+
+          setTotalamountbyType(total);
+
+         
+
+
+       }
+
+       fetchdata(); 
+
+       
+
+
+   },[refresh])
+
+
+
+   
+     
+
+
+    
+
+
+       
+
+
   return (
     <>
         <h2 className="sm:my-16 text-2xl sm:text-3xl font-semibold my-4 sm:mx-8 md:mx-16 px-4 ">
@@ -13,14 +80,17 @@ function MainCard() {
 
         <div className="flex justify-center items-center sm:gap-8  m-4 gap-4 md:px-60 my-4 sm:mx-8 md:mx-16 ">
           <div className="flex-1">
-            <IncomeCard />
+            <IncomeCard  Tincome= {TotalamountbyType.income > 0 ?TotalamountbyType.income: 0 } />
           </div>
 
           <div className="flex-1">
-            <ExpenseCard />
+            <ExpenseCard  Texpense= {TotalamountbyType.expense >0 ? TotalamountbyType.expense:0 }/>
           </div>
         </div>
       </main>
+
+       <History/>
+      <TasksContainer tasklist={tasklist}/>
     
     </>
   );

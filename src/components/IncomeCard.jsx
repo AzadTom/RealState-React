@@ -1,7 +1,7 @@
 import React from "react";
 import income from '../assets/money.svg';
 
-function IncomeCard() {
+function IncomeCard({Tincome}) {
   return (
     <>
       <div >
@@ -12,7 +12,7 @@ function IncomeCard() {
         </div>
         {/* content */}
         <div>
-            <h2 className="text-xl sm:text-3xl font-semibold">$32000</h2>
+            <h2 className="text-xl sm:text-3xl font-semibold">{Tincome}</h2>
             <p>Incomes</p>
         </div>
 

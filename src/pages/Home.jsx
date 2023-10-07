@@ -4,7 +4,7 @@ import MainCard from '../components/MainCard'
 import History from '../components/History'
 import TasksContainer from '../components/TasksContainer'
 import Btn from '../components/Btn'
-import Counter from '../components/Counter'
+
 
 
 function Home() {
@@ -13,9 +13,8 @@ function Home() {
    
     <Header/>
     <MainCard/>
-    <History/>
-    <TasksContainer/>
     <Btn/>
+  
     
  
     </>
