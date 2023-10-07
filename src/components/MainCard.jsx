@@ -10,8 +10,7 @@ function MainCard() {
 
 
   const [tasklist,setasks] = useState([ ]);
-  const [refresh,setRefrsh] = useState(false);
-
+ 
   const [TotalamountbyType,setTotalamountbyType] = useState({expense:0,income:0});
 
    
@@ -47,12 +46,12 @@ function MainCard() {
             },{ });
 
 
-           },[ refresh]);
+           },[ tasklist]);
 
           
 
           setTotalamountbyType(total);
-          setRefrsh((prev)=> !prev);
+     
 
          
 
@@ -64,7 +63,7 @@ function MainCard() {
        
 
 
-   },[refresh])
+   },[tasklist])
 
 
 
