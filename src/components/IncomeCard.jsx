@@ -1,7 +1,8 @@
 import React from "react";
 import income from '../assets/money.svg';
 
-function IncomeCard({Tincome}) {
+const  IncomeCard=  React.memo(({Tincome})=>{
+
   return (
     <>
       <div >
@@ -20,6 +21,6 @@ function IncomeCard({Tincome}) {
       </div>
     </>
   );
-}
+}) 
 
 export default IncomeCard;

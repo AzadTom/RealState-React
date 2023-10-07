@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import IncomeCard from "./IncomeCard";
 import ExpenseCard from "./ExpenseCard";
 import TasksContainer from "./TasksContainer";
@@ -29,22 +29,30 @@ function MainCard() {
           const { status ,data} = response;
 
           setasks(data.tasks);
-          setRefrsh((prev)=> !prev);
+          
 
-           const total = tasklist.reduce((acc,curr)=>{
+           const total = useMemo(()=>{
 
-            const {type ,amount} = curr;
+            tasklist.reduce((acc,curr)=>{
 
-            acc[type] = (acc[type] ||0 )+ amount;
+              const {type ,amount} = curr;
+  
+              acc[type] = (acc[type] ||0 )+ amount;
+  
+  
+              return acc;
+  
+  
+  
+            },{ });
 
 
-            return acc;
+           },[ refresh]);
 
-
-
-          },{ });
+          
 
           setTotalamountbyType(total);
+          setRefrsh((prev)=> !prev);
 
          
 

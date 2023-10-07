@@ -1,15 +1,16 @@
-import React from "react";
-import Home from "./pages/Home";
-import { Toaster } from "react-hot-toast";
-import SignUp from "./authentication/SignUp";
-import SignIn from "./authentication/SignIn";
-import Forget from "./authentication/Forget";
-import ChangePassword from "./authentication/ChangePassword";
-import Success from "./authentication/Success";
-import HeroSection from "./components/HeroSection";
+import React, { Suspense, lazy } from "react";
 import {Routes,Route} from 'react-router-dom'
-import Profile from "./pages/Profile";
-import CreateTask from "./pages/CreateTask";
+import { Toaster } from "react-hot-toast";
+const  Home =  lazy(()=> import("./pages/Home")); 
+const  SignUp = lazy(()=> import("./authentication/SignUp"));
+const  SignIn =  lazy(()=> import("./authentication/SignIn"));
+const  Forget = lazy(()=> import("./authentication/Forget")); 
+const ChangePassword = lazy(()=> import( "./authentication/ChangePassword")); 
+const  Success  = lazy(()=> import("./authentication/Success")); 
+const  HeroSection = lazy(()=> import("./components/HeroSection"));  
+const  Profile =  lazy(()=> import("./pages/Profile")) ;
+const CreateTask  = lazy(()=> import("./pages/CreateTask"));
+const Loader  = lazy(()=> import("./components/Loader"));
 
 
 function App() {
@@ -17,15 +18,15 @@ function App() {
     <>
     <Toaster position="bottom-center" reverseOrder={false}/>
     <Routes>
-        <Route element ={ <HeroSection/>} path="/"/>
-        <Route element={<SignUp/>} path="/signup"/>
-        <Route element={<SignIn/>} path="/signin"/>
-        <Route element={<Forget/>} path="/forget"/>
-        <Route element={<ChangePassword/>} path="/change/:id/:tokon"/>
-        <Route element={<Success/>} path="/success/:message"/>
-        <Route element={<Home/>} path="/home"/>
-        <Route element={<Profile/>} path="/profile"/>
-        <Route element={<CreateTask/>} path="/createtask"/>
+        <Route element ={ <Suspense fallback={<Loader/>}> <HeroSection /></Suspense>} path="/"/>
+        <Route element={<Suspense fallback={<Loader/>}><SignUp/></Suspense>} path="/signup"/>
+        <Route element={<Suspense fallback={<Loader/>}> <SignIn/></Suspense>} path="/signin"/>
+        <Route element={<Suspense fallback={<Loader/>}> <Forget/></Suspense>} path="/forget"/>
+        <Route element={<Suspense fallback={<Loader/>}> <ChangePassword/></Suspense>} path="/change/:id/:tokon"/>
+        <Route element={<Suspense fallback={<Loader/>}> <Success/></Suspense>} path="/success/:message"/>
+        <Route element={<Suspense fallback={<Loader/>}> <Home/></Suspense>} path="/home"/>
+        <Route element={<Suspense fallback={<Loader/>}> <Profile/></Suspense>} path="/profile"/>
+        <Route element={<Suspense fallback={<Loader/>}> <CreateTask/></Suspense>} path="/createtask"/>
     </Routes>
     </>
   );
