@@ -4,6 +4,7 @@
 
 * Materual Ui
 * Axios
+* TailwindCss
 * Jsonwebtoken
 * React-hot-toast
 * React-router-dom
