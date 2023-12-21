@@ -3,16 +3,40 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: 1px solid red;
+}
+
+
+:root{
+
+  --primarycolor:#212121;
+  --secondarycolor:#424242;
+
+  --primarytext:#F5F5F5;
+  --secondarytext:#A2A2A2;
+
+  --border:.6rem;
+
 }
 
 body {
   font-family: "Karla", sans-serif;
   font-family: "Poppins", sans-serif;
-  background: #1E1E1E;
-  color: #EAEAEA;
+  background: var(--primarycolor);
+  color: var(--primarytext);
   
 }
 
 * ::-webkit-scrollbar {
   display: none;
 }
+
+
+.heroImg{
+
+  background-image: url(../assets/heroImg.png);
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+}
+
