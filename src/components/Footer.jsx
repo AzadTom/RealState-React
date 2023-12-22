@@ -72,7 +72,7 @@ const Footer =()=>{
             </div>
         </footer>
         <div className="flex justify-center items-center w-full ">
-       <span className="text-2xl cursor-pointer my-2" onClick={()=> goToTop()}><img src="/downArrow.svg" alt="downArrow"/> </span>
+       <span className="text-2xl cursor-pointer mb-4" onClick={()=> goToTop()}><img src="/downArrow.svg" alt="downArrow"/> </span>
         </div>
         </>
     )
