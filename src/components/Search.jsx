@@ -1,5 +1,6 @@
 import '../App.css';
 import Input from './Input';
+import Header from './Header';
 
 
 const Search = ()=>{
@@ -31,8 +32,8 @@ const Search = ()=>{
 
     return(
         <>
+          <Header/>
          <header className='bg-[url("/heroImg.png")]  bg-cover object-cover bg-center h-[60vh] p-4 flex justify-center items-center'>
-
            {/* main search */}
              <section className="bg-[var(--secondarycolor)] p-4 pb-8 md:pb-16">
                 {/* title */}

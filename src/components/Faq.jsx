@@ -1,9 +1,9 @@
-import { useState } from "react";
+import Question from "./Question";
 
 const Faq=()=>{
 
 
-    const[status,setStatus] = useState(false);
+    
 
     const faq=[
         {
@@ -35,13 +35,10 @@ const Faq=()=>{
                 <button className="text-[var(--primarycolortext)] bg-[var(--primarycolor)] font-thin text-sm px-4 py-2">see more</button>
                 </div>
             </div>
-            <div className="text-[var(--primarycolortext)] flex flex-col gap-4  mt-4 ">
+            <div className="text-[var(--primarycolortext)] flex flex-col gap-4  mt-4 max-w-[320px] sm:max-w-[600px]">
               {faq.map((item)=>(
 
-                    <div key={item.id} className="flex flex-col ">
-                        <div className="flex gap-2 md:items-center cursor-pointer" onClick={()=> setStatus(!status)}><span><img src="/dot.svg" alt="dot" /></span> <h2>{item.title}</h2></div>
-                        <p className={ status==true?"text-sm text-[var(--secondarytext)] max-w-[320px] w-full pl-4":"hidden"}>Yes , We do we are connecting to our country leading bank such as access bank ,hdfc bank etc...</p>
-                    </div>
+                  <Question title={item.title} key={item.id}/>
 
               ))}
                 

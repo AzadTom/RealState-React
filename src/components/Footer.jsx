@@ -4,6 +4,15 @@ const Footer =()=>{
 
 
 
+    const goToTop=()=>{
+
+        window.scroll({
+            top:0,
+            behavior:"smooth"
+        })
+
+    }
+
     return(
         <>
         <footer className="bg-black text-white my-4 py-4 px-4 grid  gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 overflow-hidden">
@@ -63,7 +72,7 @@ const Footer =()=>{
             </div>
         </footer>
         <div className="flex justify-center items-center w-full">
-       <span className="text-2xl">&#128897;</span>
+       <span className="text-2xl cursor-pointer" onClick={()=> goToTop()}>&#128897;</span>
         </div>
         </>
     )
