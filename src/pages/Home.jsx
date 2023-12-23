@@ -10,12 +10,14 @@ const Home = ()=>{
 
     return(
         <>
-        <Search/>
+      
+       <Search/>
         <Products/>
         <Cta/>
         <Blogs/>
         <Faq/>
         <Footer/>
+      
         </>
     )
 
