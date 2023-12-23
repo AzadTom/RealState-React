@@ -6,31 +6,31 @@ const Products = ()=>{
     const products=[
         {
             id:1,
-            heroImg:"/demo1.png",
+            heroImg:"https://images.unsplash.com/photo-1472148083604-64f1084980b9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title:"Banana lsland, Lagos",
-            bed:"5 bed",
-            dimension:"10 by 10",
+            bed:"6 bed",
+            dimension:"15 by 15",
             price:"10M"
         },
         {
             id:2,
-            heroImg:"/demo2.png",
+            heroImg:"https://images.unsplash.com/photo-1431576901776-e539bd916ba2?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title:"Parkview Estate, Lagos",
-            bed:"5 bed",
+            bed:"3 bed",
             dimension:"15 by 10",
             price:"20M"
         },
         {
             id:3,
-            heroImg:"/demo3.png",
+            heroImg:"https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFyY2hpdGVjdHVyZXxlbnwwfHwwfHx8MA%3D%3D",
             title:"Eko Atlantic Estate, Lagos",
-            bed:"7 bed",
-            dimension:"20 by 20",
-            price:"25M"
+            bed:"2 bed",
+            dimension:"17 by 20",
+            price:"12M"
         },
         {
             id:4,
-            heroImg:"/demo4.png",
+            heroImg:"https://images.unsplash.com/photo-1472148083604-64f1084980b9?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title:"Banana lsland, Lagos",
             bed:"6 bed",
             dimension:"15 by 15",
@@ -38,7 +38,7 @@ const Products = ()=>{
         },
         {
             id:5,
-            heroImg:"/demo5.png",
+            heroImg:"https://images.unsplash.com/photo-1431576901776-e539bd916ba2?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title:"Parkview Estate, Lagos",
             bed:"3 bed",
             dimension:"15 by 10",
@@ -46,7 +46,7 @@ const Products = ()=>{
         },
         {
             id:6,
-            heroImg:"/demo6.png",
+            heroImg:"https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGFyY2hpdGVjdHVyZXxlbnwwfHwwfHx8MA%3D%3D",
             title:"Eko Atlantic Estate, Lagos",
             bed:"2 bed",
             dimension:"17 by 20",

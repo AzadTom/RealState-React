@@ -9,8 +9,13 @@ const MobileNav=()=>{
     return(
         <>
 
+<<<<<<< HEAD
         <section className="sm:hidden flex justify-between  items-baseline px-4 py-2 sticky bottom-0 bg-[var(--primarycolor)] border-t border-[var(--secondarytext)] ">
             <div className="flex flex-col gap-1 justify-center items-center" onClick={()=> navigate("/")}>
+=======
+        <section className="sm:hidden flex justify-between  items-baseline px-4 py-2 sticky bottom-0 bg-[var(--neutralblack)] border-t border-[var(--primarytext)] ">
+            <div className="flex flex-col gap-1 justify-center items-center">
+>>>>>>> master
                 <div className="w-[16px]">
                     <img src="/property.svg" alt="home" />
                 </div>

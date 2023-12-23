@@ -7,7 +7,7 @@ const Header=()=>{
 
     return(
         <>
-        <div className="flex justify-between m-4 items-center  ">
+        <div className="flex justify-between p-4 items-center  bg-[var(--neutralblack)]">
             <div>
                 <img src="/LuxeNest.svg" alt="logo" />
             </div>
