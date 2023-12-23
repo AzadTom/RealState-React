@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 
 const Header=()=>{
 
 
+    const navigate = useNavigate();
 
     return(
         <>
@@ -11,10 +13,10 @@ const Header=()=>{
             </div>
            
                 <ul className="gap-4 hidden sm:flex sm:gap-8 text-sm font-extralight">
-                    <li className="font-semibold">Home</li>
-                    <li>AboutUs</li>
-                    <li>Properties</li>
-                    <li>Agents</li>
+                    <li className="font-semibold" onClick={()=> navigate("/")}>Home</li>
+                    <li onClick={()=> navigate("/about")}>AboutUs</li>
+                    <li onClick={()=> navigate("/property")}>Properties</li>
+                    <li onClick={()=> navigate("/agents")}>Agents</li>
                 </ul>
              
             <div>

@@ -4,7 +4,7 @@ import Cta from '../components/Cta';
 import Blogs from '../components/Blogs';
 import Faq from '../components/Faq';
 import Footer from '../components/Footer';
-import MobileNav from '../components/MobileNav';
+
 const Home = ()=>{
 
 
@@ -16,7 +16,6 @@ const Home = ()=>{
         <Blogs/>
         <Faq/>
         <Footer/>
-        <MobileNav/>
         </>
     )
 
