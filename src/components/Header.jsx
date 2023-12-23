@@ -12,7 +12,7 @@ const Header=()=>{
                 <img src="/LuxeNest.svg" alt="logo" />
             </div>
            
-                <ul className="gap-4 hidden sm:flex sm:gap-8 text-sm font-extralight">
+                <ul className="gap-4 hidden sm:flex sm:gap-8 text-sm font-extralight cursor-pointer">
                     <li className="font-semibold" onClick={()=> navigate("/")}>Home</li>
                     <li onClick={()=> navigate("/about")}>AboutUs</li>
                     <li onClick={()=> navigate("/property")}>Properties</li>
