@@ -1,11 +1,18 @@
-import Home from "./pages/Home";
-import Property from './pages/Property';
-import Agents from './pages/Agents';
-import About from './pages/About';
 import { Routes,Route } from "react-router-dom";
-import Loading from "./components/Loading";
-import { Suspense} from "react";
-import MobileNav from "./components/MobileNav";
+
+
+
+import HomePage from './pages/HomePage';
+import SearchResult from "./pages/SearchResult";
+import ProductDeatailPage from "./pages/ProductDeatailPage";
+import BlogDeatailPage from "./pages/BlogDetailPage";
+
+
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+
+
+
 
 
 
@@ -13,13 +20,14 @@ import MobileNav from "./components/MobileNav";
 function App() {
   return (
     <>
+    <Header/>
     <Routes>
-      <Route path="/" element={<Suspense fallback={<Loading/>}><Home/></Suspense>}/>
-      <Route path="/property" element={<Suspense fallback={<Loading/>}><Property/></Suspense>}/>
-      <Route path="/agents" element={<Suspense fallback={<Loading/>}><Agents/></Suspense>}/>
-      <Route path="/about" element={<Suspense fallback={<Loading/>}><About/></Suspense>}/>
+      <Route path="/" element={<HomePage/>}/>
+      <Route path="/searchResult" element={<SearchResult/>}/>
+      <Route path="/productdetailpage" element={<ProductDeatailPage/>}/>
+      <Route path="/blogdetailpage" element={<BlogDeatailPage/>}/>
     </Routes>
-    <MobileNav/>
+    <Footer/>
     </>
   );
 }

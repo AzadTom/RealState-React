@@ -1,5 +1,3 @@
-import "../App.css";
-
 const Footer =()=>{
 
 
@@ -15,10 +13,10 @@ const Footer =()=>{
 
     return(
         <>
-        <footer className="bg-black text-white my-4 py-4 px-4 grid  gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 overflow-hidden">
+        <footer className="my-4 py-4 px-4 grid  gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 overflow-hidden">
             <div>
                 <h2>Our useful links</h2>
-                <ul className="text-[var(--secondarytext)] text-sm font-thin flex flex-col gap-4 " >
+                <ul className="text-sm font-thin flex flex-col gap-4 " >
                     <li>PropTechVision</li>
                     <li>EstateExplorer</li>
                     <li>RealtyPulse</li>
@@ -29,7 +27,7 @@ const Footer =()=>{
             </div>
             <div>
                 <h2>Socials</h2>
-                <ul className="text-[var(--secondarytext)] text-sm font-thin flex flex-col gap-4 ">
+                <ul className="text-sm font-thin flex flex-col gap-4 ">
                     <li>ConnectSphere</li>
                     <li>SocialHarbor</li>
                     <li>UnityHub</li>
@@ -39,7 +37,7 @@ const Footer =()=>{
 
             <div>
                 <h2>Collabrators</h2>
-                <ul className="text-[var(--secondarytext)] text-sm font-thin flex flex-col gap-4 ">
+                <ul className=" text-sm font-thin flex flex-col gap-4 ">
                     <li>TeamHarbor</li>
                     <li>CollaboraLink</li>
                     <li>SyncWave</li>
@@ -52,7 +50,7 @@ const Footer =()=>{
 
             <div>
                 <h2>Properties</h2>
-                <ul className="text-[var(--secondarytext)] text-sm font-thin flex flex-col gap-4 ">
+                <ul className=" text-sm font-thin flex flex-col gap-4 ">
                     <li>RuralRetreatSampler</li>
                     <li>SkyHighResidencesDemo</li>
                     <li>MountainViewSampler</li>
@@ -63,7 +61,7 @@ const Footer =()=>{
 
             <div>
                 <h2>AboutUs</h2>
-                <ul className="text-[var(--secondarytext)] text-sm font-thin flex flex-col gap-4 ">
+                <ul className=" text-sm font-thin flex flex-col gap-4 ">
                     <li>UrbanVistaOrigins</li>
                     <li>PrimePropertiesPioneers</li>
                     <li>HarmonyHomesStory</li>
@@ -72,7 +70,7 @@ const Footer =()=>{
             </div>
         </footer>
         <div className="flex justify-center items-center w-full ">
-       <span className="text-2xl cursor-pointer mb-4" onClick={()=> goToTop()}><img src="/downArrow.svg" alt="downArrow"/> </span>
+       <span className="text-2xl cursor-pointer mb-4 bg-[var(--primarytext)] p-2" onClick={()=> goToTop()}><img src="/downArrow.svg" alt="downArrow"/> </span>
         </div>
         </>
     )

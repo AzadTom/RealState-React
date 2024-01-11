@@ -24,15 +24,15 @@ const Faq=()=>{
         <>
         <section className="flex justify-center items-center p-4 ">
            <div className="flex flex-col justify-between items-center max-w-[1000px] w-full md:flex-row">
-           <div className="bg-black p-8 text-[var(--primarycolortext)] flex flex-col gap-8 ">
+           <div className="bg-[var(--primarytext)] p-8 text-[var(--primarycolor)] flex flex-col gap-8 ">
                 <h2 className="text-3xl">FAQS</h2>
                 <div className="text-3xl">
                 <h3>Frequently asked</h3>
                 <h3>questions</h3>
                 </div>
                 <div className="flex flex-col gap-4">
-                <p className="text-[var(--secondarytext)] text-sm font-thin">Have question you want answer to?</p>
-                <button className="text-[var(--primarycolortext)] bg-[var(--primarycolor)] font-thin text-sm px-4 py-2">see more</button>
+                <p className="text-[var(--secondarycolor)] text-sm font-thin">Have question you want answer to?</p>
+                <button className="text-[var(--primarytext)] bg-[var(--primarycolor)] font-thin text-sm px-4 py-2">see more</button>
                 </div>
             </div>
             <div className="text-[var(--primarycolortext)] flex flex-col gap-4  mt-4 max-w-[320px] sm:max-w-[600px]">

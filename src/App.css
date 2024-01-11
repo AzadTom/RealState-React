@@ -3,23 +3,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px solid red;
 }
+
 
 
 :root{
 
-  --primarycolor:#212121;
-  --secondarycolor:#424242;
-
-  --primarytext:#F5F5F5;
-  --secondarytext:#A2A2A2;
-
-  --neutralblack:#000000;
-
-  --border:.6rem;
-
+    --primarycolor:#FFFFFF;
+    --secondarycolor:#EEEEEE;
+    --primarytext:#212121;
+    --secondarytext:#424242;
 }
+
 
 body {
   font-family: "Karla", sans-serif;
@@ -34,11 +29,5 @@ body {
 }
 
 
-.heroImg{
 
-  background-image: url(../assets/heroImg.png);
-  background-position: center;
-  background-size: cover;
-  object-fit: cover;
-}
 

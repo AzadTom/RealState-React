@@ -3,7 +3,7 @@ const Cta =()=>{
 
     return(
         <>
-         <section className={`bg-[url("/heroImg2.png")] bg-cover bg-center object-fit w-full h-[80vh] my-8 flex justify-center items-center`}>
+         <section className={`bg-[url("/heroImg2.png")] bg-cover bg-center object-fit w-full h-[80vh] my-8 flex justify-center text-[var(--primarycolor)] items-center`}>
             <div className="text-center flex flex-col gap-2">
             <h2 className="font-thin text-xl">Looking for help?</h2>
             <h3 className="font-bold">Call US at</h3>
