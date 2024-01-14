@@ -36,8 +36,8 @@ const HeroContent = ()=>{
 
     return(
           <div className='flex flex-col justify-center items-center'>
-          <h2 className='text-3xl sm:text-8xl font-semibold'>LuxeNust</h2>
-            <p className='text-xl sm:text-3xl'>Find properties nearby</p>
+          <h2 className='text-6xl sm:text-8xl font-semibold'>LuxeNust</h2>
+            <p className='text-2xl sm:text-3xl'>Find properties nearby</p>
           </div>
     )
 }
