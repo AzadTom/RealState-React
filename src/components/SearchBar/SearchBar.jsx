@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { LocationCity, LocationSearching } from '@mui/icons-material';
 import { Home } from '@mui/icons-material';
 import { Money } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+
+import SearchInput from './SearchInput';
+import ListItem from './ListItem';
 
 function SearchBar() {
 
@@ -12,20 +15,27 @@ function SearchBar() {
 
     const location = ["Haryana","Mumbai","Delhi","Chandigarh"];
 
+
+
+    
+
     const inputs = [
         {
             icon: <LocationCity/>,
-            text:"Enter location"
+            text:"Enter location",
+            list: ["Mumbai","Kolkata","Saga","Gujrat","Mumbai"]
 
         },
         {
             icon:<Home/>,
-            text:"Property"
+            text:"Property",
+            list: ["rent a property","buy a property","Pg"]
         },
         {
 
             icon:<Money/>,
-            text:"Budget"
+            text:"Budget",
+            list:["8000","12000","20000","30000"]
 
         }
     ]
@@ -37,19 +47,15 @@ function SearchBar() {
         <div className='grid grid-cols-1   sm:grid-cols-2 md:grid-cols-4 gap-4  '>
             {inputs.map((item)=>{
 
-                return ( <div className='relative text-black hidden sm:block'>
-                     
-                      <label htmlFor={item.text} className='absolute top-0 left-0 right-0 bottom-0 flex items-center px-4 border border-[var(--secondarytext)]'>{item.icon}</label>
-                      <input type="text" placeholder={item.text}  className='pl-12 py-2  w-full' id={item.text}/>
-                      
-                </div> )
+                return ( <SearchInput item={item}/> )
 
             })} 
 
                 <div className='relative text-black sm:hidden'>
                      
                      <label htmlFor="location" className='absolute top-0 left-0 right-0 bottom-0 flex items-center px-4 border border-[var(--secondarytext)]'><LocationSearching/></label>
-                     <input type="text" placeholder="Location"  className='pl-12 py-2  w-full' id="location" onChange={()=> navigate("/searchResult")}/>
+                     <input type="text" placeholder="Location"  className='pl-12 py-2  w-full' id="location" />
+                   
                      
                </div>
 
