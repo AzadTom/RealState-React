@@ -5,7 +5,7 @@ import { Money } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
 import SearchInput from './SearchInput';
-import ListItem from './ListItem';
+
 
 function SearchBar() {
 
@@ -17,6 +17,9 @@ function SearchBar() {
 
 
 
+
+    const [option,SetOption] = useState(false);
+    const [query,SetQuery]= useState("");
     
 
     const inputs = [
@@ -54,9 +57,11 @@ function SearchBar() {
                 <div className='relative text-black sm:hidden'>
                      
                      <label htmlFor="location" className='absolute top-0 left-0 right-0 bottom-0 flex items-center px-4 border border-[var(--secondarytext)]'><LocationSearching/></label>
-                     <input type="text" placeholder="Location"  className='pl-12 py-2  w-full' id="location" />
-                   
-                     
+                     <input type="text" placeholder="Location"  className='pl-12 py-2  w-full' id="location"  onClick={()=> SetOption((prev)=>(!prev))} value={query}/>
+                     {option && (<div className='absolute top-8 w-full left-0 bg-white p-2 cursor-pointer'>
+                         {location.map((item)=>(<div onClick={()=> { SetQuery(item)
+                                                                         SetOption(false)} }>{item}</div> ))}
+                     </div> )}
                </div>
 
             <button className='px-4 py-2 bg-[var(--primarytext)] text-[var(--primarycolor)] hidden sm:block' onClick={()=> navigate("/searchResult")}>Search</button>
