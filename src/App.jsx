@@ -13,6 +13,8 @@ import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
 
+import MobileFooter from "./components/Footer/MobileFooter";
+
 
 
 
@@ -30,6 +32,7 @@ function App() {
       <Route path="/blogdetailpage" element={<BlogDeatailPage/>}/>
     </Routes>
     <Footer/>
+    <MobileFooter/>
     </>
   );
 }

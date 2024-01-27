@@ -13,7 +13,15 @@ function SearchBar() {
 
     const navigate = useNavigate();
 
-    const location = ["Haryana","Mumbai","Delhi","Chandigarh"];
+    const location = [
+        "Connaught Place", "Karol Bagh", "Chandni Chowk",
+        "Hauz Khas", "Saket", "Vasant Kunj",
+        "Greater Kailash", "Shahdara", "Pitampura",
+        "Dwarka", "Rajouri Garden", "Janakpuri",
+        "Lajpat Nagar", "South Extension", "Nehru Place",
+        "Gurgaon", "Noida", "Faridabad", 
+        "Ghaziabad", "Greater Noida", "New Delhi"
+    ];
 
 
 
@@ -59,7 +67,7 @@ function SearchBar() {
                      <label htmlFor="location" className='absolute top-0 left-0 right-0 bottom-0 flex items-center px-4 border border-[var(--secondarytext)]'><LocationSearching/></label>
                      <input type="text" placeholder="Location"  className='pl-12 py-2  w-full' id="location"  onClick={()=> SetOption((prev)=>(!prev))} value={query}/>
                      {option && (<div className='absolute top-8 w-full left-0 bg-white p-2 cursor-pointer'>
-                         {location.map((item)=>(<div onClick={()=> { SetQuery(item)
+                         {location.map((item)=>(<div className='px-4 py-2' onClick={()=> { SetQuery(item)
                                                                          SetOption(false)} }>{item}</div> ))}
                      </div> )}
                </div>
@@ -67,7 +75,7 @@ function SearchBar() {
             <button className='px-4 py-2 bg-[var(--primarytext)] text-[var(--primarycolor)] hidden sm:block' onClick={()=> navigate("/searchResult")}>Search</button>
         </div>
         <div className='flex justify-between gap-2 overflow-scroll w-full'>
-            {location.map((item)=>( <button className='flex-1 px-4 py-2 bg-[var(--primarytext)]'onClick={()=> navigate("/searchResult")}>{item}</button> ))}
+            {location.map((item)=>( <button className='flex-1 px-4 py-2 bg-[var(--primarytext)] whitespace-nowrap'onClick={()=> navigate("/searchResult")}>{item}</button> ))}
         </div>
     </div>
     </section>
